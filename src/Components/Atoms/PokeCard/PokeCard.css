@@ -1,0 +1,161 @@
+.card {
+
+    box-shadow: #4682B4;
+    width: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+.image{
+    z-index: 1;
+}
+.circulo {
+    width: 80px; /* Diámetro del círculo */
+    height: 80px; /* Diámetro del círculo */
+    background-color: rgba(255, 255, 255, 0.148); /* Color del círculo */
+    border-radius: 50%; /* Hace que el círculo sea redondo */
+    position: absolute; /* Posicionamiento absoluto para mover el círculo */
+    top: 45%; /* Posiciona el círculo en el centro vertical del cuadrado */
+    left: 50%; /* Posiciona el círculo en el centro horizontal del cuadrado */
+    transform: translate(-50%, -50%); /* Centra el círculo exactamente en el centro del cuadrado */
+    z-index: 0;
+}
+.grass{
+    background-color: rgb(37, 181, 37);
+}.poison{
+    background-color: rgb(111, 33, 111);
+}
+.card.grass.poison{
+    background: linear-gradient(to bottom right, rgb(37, 181, 37), rgb(111, 33, 111));
+}
+.fire{
+    background-color: #f84424;
+}
+.card.fire.flying {
+    background: linear-gradient(to bottom right, #FFA500, #FF6F61);
+}
+.water{
+    background-color: rgb(96, 64, 255);
+}
+.water.ice{
+    background: linear-gradient(to bottom right, rgb(96, 64, 255), #B0E0E6);
+}
+.bug{
+    background-color: #8B4513;
+}
+.bug.grass{
+    background: linear-gradient(to bottom right, #8B4513, rgb(37, 181, 37));
+}
+.card.bug.poison{
+    background: linear-gradient(to bottom right, #8B4513, rgb(111, 33, 111));
+}
+.card.bug.flying{
+    background: linear-gradient(to bottom right, #8B4513, #FF6F61);
+}
+.normal{
+    background-color: #a88784;
+}
+.card.normal.flying{
+    background: linear-gradient(to bottom right,#a88784, #FF6F61);
+}
+.electric{
+    background-color: rgb(210, 210, 69);
+}
+.electric.steel{
+    background: linear-gradient(to bottom right,rgb(210, 210, 69), #acacac)
+}
+.ground{
+    background-color: sandybrown;
+}
+.poison.ground{
+    background: linear-gradient(to bottom right,rgb(111, 33, 111), sandybrown)
+}
+.poison.flying{
+    background: linear-gradient(to bottom right,rgb(111, 33, 111), #a88784)
+}
+.fairy{
+    background-color: #FFB6C1;
+}
+.fairy.normal{
+    background: linear-gradient(to bottom right,#FFB6C1, #a88784)
+}
+.fighting{
+    background-color: #b01e1e;
+}
+.water.fighting{
+    background: linear-gradient(to bottom right,rgb(96, 64, 255), #b01e1e)
+}
+.water.poison{
+    background: linear-gradient(to bottom right,rgb(96, 64, 255), rgb(111, 33, 111));
+}
+.psychic{
+    background-color: #9370DB;
+}
+.rock.ground{
+    background: linear-gradient(to bottom right,#808080, sandybrown);
+}
+.ghost.poison{
+    background: linear-gradient(to bottom right,#784d78, rgb(111, 33, 111));
+}
+.grass.psychic{
+    background: linear-gradient(to bottom right,rgb(37, 181, 37), #9370DB);
+}
+.water.fairy{
+    background: linear-gradient(to bottom right,rgb(96, 64, 255), #FFB6C1);
+}
+.water.flying{
+    background: linear-gradient(to bottom right,rgb(96, 64, 255), #FF6F61);
+}
+.rock.water{
+    background: linear-gradient(to bottom right,#808080, rgb(96, 64, 255));
+}
+.rock.flying{
+    background: linear-gradient(to bottom right,#808080, #FF6F61);
+}
+.ice.flying{
+    background: linear-gradient(to bottom right,#B0E0E6, #FF6F61);
+}
+.electric.flying{
+    background: linear-gradient(to bottom right,rgb(210, 210, 69), #FF6F61);
+}
+.dragon{
+    background: #2E8B57;
+}
+.dragon.flying{
+    background: linear-gradient(to bottom right, #2E8B57, #FF6F61);
+}
+
+
+.Number{
+    color: rgb(216, 236, 223);
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+}
+.pokemonName {
+    color: rgb(216, 236, 223);
+    font-style: italic;
+    margin: 0;
+}
+.pokemonType{
+    color: rgb(216, 236, 223);
+    display: flex;
+   /* flex-direction: row;*/
+    width: 100%;
+    justify-content: center;
+}
+
+.pokemonTypeText{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.pokemonTypeText h3{
+    margin: 5px;
+}

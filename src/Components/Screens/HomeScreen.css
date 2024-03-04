@@ -1,0 +1,51 @@
+button:focus {
+  outline: 0;
+  outline: none;
+}
+body {
+  font-family: Roboto;
+  background: #151515;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: justify;
+  color: black;
+}
+.pokedex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 20px;
+    max-width: 1260px;
+}
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.modal {
+  display: block; /* Por defecto, la ventana emergente está oculta */
+  position: fixed; /* La ventana emergente está fija en la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  height: 100%; /* Ocupa toda la altura de la pantalla */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+  z-index: 1; /* Asegura que la ventana emergente esté encima de todo */
+  z-index: 9;
+}
+
+.modal-contenido {
+  background-color: #fefefe; /* Fondo blanco para el contenido */
+  margin: 15% auto; /* Centra la ventana emergente verticalmente y deja un margen en los lados */
+  padding: 10px;
+  border: 1px solid #888;
+  width: 80%; /* Ancho del contenido */
+}
+
+.close {
+  color: #aaa; /* Color gris para el botón de cierre */
+  float: right; /* Mueve el botón de cierre a la esquina superior derecha */
+  font-size: 28px;
+  font-weight: bold;
+}

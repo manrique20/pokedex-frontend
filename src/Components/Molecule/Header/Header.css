@@ -1,0 +1,36 @@
+header {
+  min-height: 526px;
+    margin-top: 0px;
+    background: linear-gradient(to bottom right, #48312f,);
+    padding: 0px;
+    box-shadow: -5px 5px 0px 5px #043570, inset -3px 3px 0px 3px rgba(0, 0, 0, 0.25);
+}
+.PokedexTitle {
+  max-width: 276px;
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.container {
+  position: relative; /* Posición relativa para que la imagen absoluta se base en este contenedor */
+  width: 100%; /* O el ancho deseado */
+  height: 100%; /* O la altura deseada */
+}
+h1 {
+  margin: 0;
+}
+.palabras-container {
+  position: relative; /* Posición relativa para que la imagen absoluta se base en este contenedor */
+  width: 100%; /* O el ancho deseado */
+  height: 100%; /* O la altura deseada */
+  display: flex;
+  margin-left: 10px; /* Espacio entre la imagen y las palabras */
+  left: 283px;
+  top: 45px;
+}
+
+.palabra {
+  margin-right: 10px;
+  color: rgb(255, 255, 255); /* Espacio entre las palabras */
+}
