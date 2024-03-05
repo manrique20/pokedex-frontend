@@ -10,7 +10,7 @@ const HomeScreen = () => {
   const [pokemonSelected, setPokemonSelected] = useState(null);
   const [error, setError] = useState(null);
   const [detailed, setDetailed] = useState(null);
-  const [reload, setReload] = useState(false); 
+  const [reload, setReload] = useState(false);
 
   const [completedPokemonData, setCompletePokemonData] = useState(null);
 
@@ -88,23 +88,30 @@ const HomeScreen = () => {
 
   if (!completedPokemonData) return <span>Loading...</span>;
   return (
-    <div>
-      <Header pokemonData={pokemonData} setPokemonData={setPokemonData} setReload={setReload} reload={reload}/>
-      <div className="container">
-        <div className="pokedex">
-          {completedPokemonData.map((elemento) => (
-            <PokeCard pokemon={elemento} openModal={handleClick} />
-          ))}
-        </div>
-        {ventanaAbierta && pokemonSelected && (
-          <div className="modal">
-            <CardInfo
-              close={handleClose}
-              pokemon={pokemonSelected}
-              details={detailed}
-            />
+    <div className="body-Home-Screen">
+        <Header
+          pokemonData={pokemonData}
+          setPokemonData={setPokemonData}
+          setReload={setReload}
+          reload={reload}
+        />
+      <div className="all-container">
+        <div className="pokedex-container">
+          <div className="pokedex">
+            {completedPokemonData.map((elemento) => (
+              <PokeCard pokemon={elemento} openModal={handleClick} />
+            ))}
           </div>
-        )}
+          {ventanaAbierta && pokemonSelected && (
+            <div className="modal">
+              <CardInfo
+                close={handleClose}
+                pokemon={pokemonSelected}
+                details={detailed}
+              />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

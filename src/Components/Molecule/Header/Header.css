@@ -1,9 +1,12 @@
 header {
-  min-height: 526px;
-    margin-top: 0px;
-    background: linear-gradient(to bottom right, #48312f,);
-    padding: 0px;
-    box-shadow: -5px 5px 0px 5px #043570, inset -3px 3px 0px 3px rgba(0, 0, 0, 0.25);
+  min-height: 205px;
+  margin-top: 0px;
+  padding: 0px;
+  box-shadow: -5px 5px 0px 5px #567eaf,
+    inset -3px 3px 0px 3px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(45deg, #333, #222, #111);
+  animation: changeBackground 10s linear infinite alternate;
+  position: relative;
 }
 .PokedexTitle {
   max-width: 276px;
@@ -12,22 +15,78 @@ header {
   left: 0;
   top: 0;
 }
-.container {
+.pikachu-container {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  overflow: hidden;
+}
+.pikachu-corriendo {
+  width: 100px;
+  border-radius: 50%;
+  animation: correr 5s linear infinite; /* 5s es la duración de la animación */
+  position: relative;
+}
+@keyframes correr {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 50%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+.headerContainer {
   position: relative; /* Posición relativa para que la imagen absoluta se base en este contenedor */
   width: 100%; /* O el ancho deseado */
   height: 100%; /* O la altura deseada */
-}
-h1 {
-  margin: 0;
 }
 .palabras-container {
-  position: relative; /* Posición relativa para que la imagen absoluta se base en este contenedor */
-  width: 100%; /* O el ancho deseado */
-  height: 100%; /* O la altura deseada */
+  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
-  margin-left: 10px; /* Espacio entre la imagen y las palabras */
-  left: 283px;
-  top: 45px;
+  align-content: stretch;
+  bottom: -18px;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  margin-inline-end: 0;
+}
+.sign-login {
+  justify-content: flex-end;
+  display: flex;
+  width: 100%;
+  position: absolute;
+  left: -6px;
+}
+.log-in {
+  background-color: #376e5f; /* Verde */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  animation: cambioColor 5s infinite;
+}
+.log-in:hover {
+  background-color: #38513a; /* Verde más oscuro al pasar el ratón */
+}
+
+.sign-up {
+  background-color: #008cba; /* Azul */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: relative;
+  left: -9px;
+}
+
+.sign-up:hover {
+  background-color: #0d3f55; /* Azul más oscuro al pasar el ratón */
 }
 
 .palabra {

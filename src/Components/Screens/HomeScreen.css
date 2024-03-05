@@ -2,22 +2,24 @@ button:focus {
   outline: 0;
   outline: none;
 }
-body {
+body{
+  background-color: #2d2b2b;
+}
+.body-Home-Screen {
   font-family: Roboto;
-  background: #151515;
+  background: #2d2b2b;
   font-size: 16px;
   font-weight: 600;
   text-align: justify;
-  color: black;
 }
 .pokedex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    padding: 20px;
-    max-width: 1260px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 20px;
+  max-width: 1260px;
 }
-.container {
+.pokedex-container {
   width: 100%;
   display: flex;
   align-items: center;

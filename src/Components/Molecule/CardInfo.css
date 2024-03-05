@@ -7,12 +7,8 @@
   box-sizing: border-box;
 }
 
-button:focus {
-  outline: 0;
-  outline: none;
-}
 
-body {
+.body {
   font-family: Roboto, sans-serif;
   background: #151515;
   font-size: 16px;
@@ -21,11 +17,6 @@ body {
   color: black;
 }
 
-container {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
 
 .logo {
   width: 400px;
@@ -210,3 +201,29 @@ footer {
 .page-logo {
   width: 300px;
 }
+.close-button:hover,
+.close-button:focus {
+  box-shadow: 
+    inset -3.5em 0 0 0 var(--hover),
+    inset 3.5em 0 0 0 var(--hover);  
+    color: #ff7f82,
+}
+button {  
+  color: var(--color);
+  transition: 0.25s;
+  
+  &:hover,
+  &:focus { 
+    border-color: var(--hover);
+    color: #fff;
+  }
+}
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
