@@ -1,7 +1,22 @@
 import "./LoginScreen.css";
 import Header from "../Molecule/Header/Header";
+import { useState } from "react";
 
 const LoginScreen = () => {
+  const [body, setBody] = useState({ username: "", password: "" });
+
+  const inputChange = ({ target }) => {
+    const { name, value } = target;
+    setBody({
+      ...body,
+      [name]: value
+    });
+  };
+
+  const onSubmit=()=>{
+    console.log(body);
+  }
+
   return (
     <>
       <Header />
@@ -10,16 +25,30 @@ const LoginScreen = () => {
           <h2>Login</h2>
           <form>
             <div className="user-box">
-              <input type="text" name="" required="" />
+              <input
+                type="text"
+                label="Username"
+                name="username"
+                required=""
+                value={body.username}
+                onChange={inputChange}
+              />
               <label>Username</label>
             </div>
             <form />
             <form />
             <div className="password-box">
-              <input type="password" name="" required="" />
+              <input
+                type="password"
+                required=""
+                label="Password"
+                value={body.password}
+                onChange={inputChange}
+                name="password"
+              />
               <label>Password</label>
             </div>
-            <a href="#">
+            <a href="#" onClick={onSubmit}>
               <span></span>
               <span></span>
               <span></span>

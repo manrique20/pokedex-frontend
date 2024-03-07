@@ -4,12 +4,11 @@ import Search from "../../Atoms/SearcheMethods/Search";
 const Header = ({ pokemonData, setPokemonData, setReload, reload }) => {
   return (
     <header>
-      <div className="headerContainer">
-        <a href="/" title="Home">
+        <a href="/" title="Home" className="home-container">
           <img
             className="PokedexTitle"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/640px-International_Pok%C3%A9mon_logo.svg.png"
-            alt="Pokedex"
+            alt="Pokemon"
           />
         </a>
         <div className="palabras-container">
@@ -28,7 +27,6 @@ const Header = ({ pokemonData, setPokemonData, setReload, reload }) => {
               Log in
             </a>
           </div>
-        </div>
       </div>
       <div className="pikachu-container">
       <img className="pikachu-corriendo"

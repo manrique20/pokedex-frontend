@@ -7,6 +7,7 @@
   display: flex;
   height: 50px;
   border-radius: 40px;
+  z-index: 1;
 }
 .d-flex {
   position: absolute;
@@ -15,8 +16,8 @@
   height: 100%;
 }
 .buttonContainer {
-  width: 100%;
-  margin: 100%;
+  width: 79%;
+  margin: 10%;
   position: static;
 }
 .search-button {
@@ -31,6 +32,7 @@
   position: absolute;
   right: 0;
   top: -1px;
+  z-index: 2;
 }
 
 .search-button:hover {

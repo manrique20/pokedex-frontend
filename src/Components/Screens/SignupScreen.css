@@ -220,3 +220,18 @@
       bottom: 100%;
     }
   }
+  .charmander-container{
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    bottom: 0;
+  }
+  .charmander-gif{
+    width: 30%;
+    position: relative;
+    right: 0;
+  }
