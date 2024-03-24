@@ -12,8 +12,6 @@ const HomeScreen = () => {
   const [detailed, setDetailed] = useState(null);
   const [reload, setReload] = useState(false);
 
-  const [completedPokemonData, setCompletePokemonData] = useState(null);
-
   const [ventanaAbierta, setVentanaAbierta] = useState(false);
 
   const handleClick = (id) => {
@@ -38,67 +36,37 @@ const HomeScreen = () => {
   };
   const handleClose = () => {
     setVentanaAbierta(false);
-    setPokemonData(null);
     setPokemonSelected(null);
   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://pokeapi.co/api/v2/pokemon/?limit=151"
-        );
-        setPokemonData(response.data.results);
+        const response = await axios.get('http://localhost:3001/pokedex');
+        setPokemonData(response.data);
       } catch (error) {
+        console.error('Error fetching data:', error);
         setError(error);
       }
     };
-
+  
     fetchData();
+  }, []);
 
-    // Cleanup function if necessary
-    // return () => {
-    //   cleanup logic here...
-    // };
-  }, [setReload, reload]);
-
-  useEffect(() => {
-    const fetchDataInformation = async () => {
-      try {
-        if (pokemonData) {
-          const promises = pokemonData.map(async (element) => {
-            const response = await axios.get(element.url);
-            const imagen = response.data.sprites.front_default;
-            const type = response.data.types[0].type.name;
-            const secondType = response.data.types[1]?.type.name;
-            const name = element.name;
-            const id = response.data.id;
-            return { imagen, type, name, id, secondType };
-          });
-          const newPokemonData = await Promise.all(promises);
-          setCompletePokemonData(newPokemonData);
-        }
-      } catch (error) {
-        throw error;
-      }
-    };
-
-    fetchDataInformation();
-  }, [pokemonData]);
-
-  if (!completedPokemonData) return <span>Loading...</span>;
+  if (!pokemonData) return <span>Loading...</span>;
   return (
     <div className="body-Home-Screen">
-        <Header
-          pokemonData={pokemonData}
-          setPokemonData={setPokemonData}
-          setReload={setReload}
-          reload={reload}
-        />
+      <Header
+        pokemonData={pokemonData}
+        setPokemonData={setPokemonData}
+        setReload={setReload}
+        reload={reload}
+
+      />
       <div className="all-container">
         <div className="pokedex-container">
           <div className="pokedex">
-            {completedPokemonData.map((elemento) => (
+            {pokemonData.map((elemento) => (
               <PokeCard pokemon={elemento} openModal={handleClick} />
             ))}
           </div>

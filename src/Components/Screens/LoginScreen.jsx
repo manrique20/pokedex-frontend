@@ -1,21 +1,45 @@
 import "./LoginScreen.css";
 import Header from "../Molecule/Header/Header";
 import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const LoginScreen = () => {
-  const [body, setBody] = useState({ username: "", password: "" });
+  const [body, setBody] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
 
   const inputChange = ({ target }) => {
     const { name, value } = target;
     setBody({
       ...body,
-      [name]: value
+      [name]: value,
     });
   };
 
-  const onSubmit=()=>{
-    console.log(body);
-  }
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!body.email || !body.password) {
+      toast.error("Todos los campos son requeridos");
+      return;
+    }
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/users/login",
+        body
+      );
+      const { token } = response.data;
+
+      localStorage.setItem("token", token);
+
+      toast.success("Logged succesfully");
+
+      navigate("/");
+    } catch (err) {
+      toast.error(err?.response?.data?.message || "Error al iniciar sesión");
+    }
+  };
 
   return (
     <>
@@ -27,13 +51,13 @@ const LoginScreen = () => {
             <div className="user-box">
               <input
                 type="text"
-                label="Username"
-                name="username"
+                label="Email"
+                name="email"
                 required=""
-                value={body.username}
+                value={body.email}
                 onChange={inputChange}
               />
-              <label>Username</label>
+              <label>Email</label>
             </div>
             <form />
             <form />
@@ -48,7 +72,7 @@ const LoginScreen = () => {
               />
               <label>Password</label>
             </div>
-            <a href="#" onClick={onSubmit}>
+            <a href="/" title="Home" onClick={onSubmit}>
               <span></span>
               <span></span>
               <span></span>
