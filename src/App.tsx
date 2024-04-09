@@ -7,6 +7,7 @@ import SignupScreen from "./Components/Screens/SignupScreen";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Importa el CSS aquí
 import MyTeam from "./Components/Screens/MyTeam";
+import "./styles/global.css"
 
 const App = () => {
   const token = localStorage.getItem("token");

@@ -17,24 +17,17 @@
   color: black;
 }
 
-
-.logo {
-  width: 400px;
-  height: 300px;
-  margin-top: -30px;
-  background: url(https://i.imgur.com/Py1eJGT.png) no-repeat;
-  background-size: contain;
-}
-
 .CardContainer {
-  width: 400px;
+  position: relative;
+  width: 122%;
   min-height: 580px;
   margin-top: -100px;
   background: #ffcc00;
   padding: 15px;
   border: 10px solid #0074bd;
   border-radius: 15px;
-  box-shadow: -5px 5px 0px 5px #043570,inset -3px 3px 0px 3px rgba(0,0,0,0.25);
+  box-shadow: -5px 5px 0px 5px #043570, inset -3px 3px 0px 3px rgba(0,0,0,0.25);
+  height: 10px;
 }
 
 .titulo {
@@ -208,22 +201,12 @@ footer {
     inset 3.5em 0 0 0 var(--hover);  
     color: #ff7f82,
 }
-button {  
-  color: var(--color);
-  transition: 0.25s;
-  
-  &:hover,
-  &:focus { 
-    border-color: var(--hover);
-    color: #fff;
-  }
-}
-button {
-  background: none;
-  border: 2px solid;
-  font: inherit;
-  line-height: 1;
-  margin: 0.5em;
-  padding: 1em 2em;
-}
 
+.close-button {
+  color: red;
+  background: black;
+  padding: 12px 10px;
+  position: absolute;
+  top: -5px;
+  right: 0;
+}

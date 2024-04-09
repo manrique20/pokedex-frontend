@@ -3,13 +3,19 @@ import "./CardInfo.css";
 
 const CardInfo = ({ pokemon, close, details }) => {
   const [showPopup, setShowPopup] = useState(true);
+  const token = localStorage.getItem("token");
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = () => {
+    setClicked(!clicked);
+  };
+
   return (
     <>
       <div className="body">
         {showPopup && (
           <div className="popup-overlay">
             <div className="popup-container">
-              <div className="logo"></div>
               <div className="CardContainer">
                 <button id="reload">
                   <i className="fas fa-sync-alt"></i>
@@ -42,10 +48,25 @@ const CardInfo = ({ pokemon, close, details }) => {
                   {pokemon.types.length > 1 &&
                     `/ ${pokemon.types[1].type.name}`}
                 </h3>
+                <button className="close-button" onClick={close}>
+                  X
+                </button>
+                <div>
+                  <button onClick={handleClick}>
+                    {clicked ? (
+                      <img
+                        src="/ruta/a/imagen-clicked.png"
+                        alt="Imagen Clicked"
+                      />
+                    ) : (
+                      <img
+                        src="/ruta/a/imagen-default.png"
+                        alt="Imagen Default"
+                      />
+                    )}
+                  </button>
+                </div>
               </div>
-              <button className="close-button" onClick={close}>
-                X
-              </button>
             </div>
           </div>
         )}

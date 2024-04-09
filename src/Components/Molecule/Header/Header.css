@@ -103,6 +103,22 @@ header {
 .logout:hover {
   background-color: #112128; /* Azul más oscuro al pasar el ratón */
 }
+button.MyTeam {
+  background-color: #423b9c;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: relative;
+  left: -9px;
+}
+button.MyTeam:hover {
+  background-color: #26225a;
+}
+.MyTeam{
+  color: aliceblue;
+  text-decoration: blink;
+}
 .palabra {
   margin-right: 10px;
   color: rgb(255, 255, 255); /* Espacio entre las palabras */
