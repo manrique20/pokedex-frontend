@@ -45,6 +45,7 @@ const SignupScreen = () => {
           <h2>Registration</h2>
           <form>
             <div className="new-user-box">
+              <label>Name</label>
               <input
                 type="text"
                 label="Nombre"
@@ -53,10 +54,10 @@ const SignupScreen = () => {
                 value={body.nombre}
                 onChange={inputChange}
               />
-              <label>Name</label>
             </div>
             <form />
             <div className="password-box">
+              <label>Email</label>
               <input
                 type="text"
                 label="Email"
@@ -65,9 +66,9 @@ const SignupScreen = () => {
                 value={body.email}
                 onChange={inputChange}
               />
-              <label>Email</label>
             </div>
             <div className="confirm-password-box">
+              <label>Password</label>
               <input
                 type="password"
                 required=""
@@ -76,7 +77,6 @@ const SignupScreen = () => {
                 onChange={inputChange}
                 name="password"
               />
-              <label>Password</label>
             </div>
             <a href="/" title="Home" onClick={onSubmit}>
               <span></span>

@@ -90,10 +90,20 @@ header {
   background-color: #0d3f55; /* Azul más oscuro al pasar el ratón */
 }
 
+.logout{
+  background-color: #34144d; /* Azul */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: relative;
+  left: -9px;
+}
+.logout:hover {
+  background-color: #112128; /* Azul más oscuro al pasar el ratón */
+}
 .palabra {
   margin-right: 10px;
   color: rgb(255, 255, 255); /* Espacio entre las palabras */
-}
-.home-container{
-
 }

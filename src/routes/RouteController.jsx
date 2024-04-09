@@ -6,10 +6,10 @@ const RouteController = props => {
   const [isAuth, setIsAuth] = useState(true)
 
   const init = () => {
-    if(!localStorage.getItem("auth")) {
+    if(!localStorage.getItem("token")) {
         setIsAuth(false)
     }else{
-        const auth = JSON.parse(localStorage.getItem('auth'))
+        const auth = JSON.parse(localStorage.getItem('token'))
         if(auth==='yes'){
             setIsAuth(true)
         }else{

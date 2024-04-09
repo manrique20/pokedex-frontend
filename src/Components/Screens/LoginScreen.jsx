@@ -1,87 +1,117 @@
 import "./LoginScreen.css";
 import Header from "../Molecule/Header/Header";
-import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import { Formik } from "formik";
 
 const LoginScreen = () => {
-  const [body, setBody] = useState({ email: "", password: "" });
   const navigate = useNavigate();
-
-  const inputChange = ({ target }) => {
-    const { name, value } = target;
-    setBody({
-      ...body,
-      [name]: value,
-    });
-  };
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!body.email || !body.password) {
-      toast.error("Todos los campos son requeridos");
-      return;
-    }
-    try {
-      const response = await axios.post(
-        "http://localhost:3001/users/login",
-        body
-      );
-      const { token } = response.data;
-
-      localStorage.setItem("token", token);
-
-      toast.success("Logged succesfully");
-
-      navigate("/");
-    } catch (err) {
-      toast.error(err?.response?.data?.message || "Error al iniciar sesión");
-    }
-  };
 
   return (
     <>
       <Header />
-      <div className="body-login">
-        <div className="login-box">
-          <h2>Login</h2>
-          <form>
-            <div className="user-box">
-              <input
-                type="text"
-                label="Email"
-                name="email"
-                required=""
-                value={body.email}
-                onChange={inputChange}
-              />
-              <label>Email</label>
+      <Formik
+        initialValues={{
+          email: "",
+          password: "",
+        }}
+        validate={(values) => {
+          const errors = {};
+          if (!values.email) {
+            errors.email = "Please write your email";
+          }
+          if (!values.password) {
+            errors.password = "Please write your password";
+          }
+          return errors;
+        }}
+        onSubmit={async (values, { resetForm }) => {
+          try {
+            const response = await axios.post(
+              "http://localhost:3001/users/login",
+              values
+            );
+
+            const { token } = response.data;
+
+            localStorage.setItem("token", token);
+
+            const userInfoResponse = await axios.get(
+              "http://localhost:3001/users"
+            );
+
+            const user = userInfoResponse.data.find(
+              (user) => user.email === values.email
+            );
+
+            // Si se encuentra el usuario, obtén su ID y guárdalo en localStorage
+            if (user) {
+              localStorage.setItem("userId", user.id);
+            }
+
+            toast.success("Logged successfully");
+
+            navigate("/", {
+              replace: true,
+              state: {
+                logged: true,
+              },
+            });
+          } catch (err) {
+            toast.error(err?.response?.data?.message || "Error at login");
+          }
+
+          resetForm();
+        }}
+      >
+        {({ values, errors, handleChange, handleSubmit, handleBlur }) => (
+          <div className="body-login">
+            <div className="login-box">
+              <h2>Login</h2>
+              <form onSubmit={handleSubmit}>
+                <div className="user-box">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    required
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  {errors.email && <div className="error">{errors.email}</div>}
+                </div>
+                <form />
+                <form />
+                <div className="password-box">
+                  <label>Password</label>
+                  <input
+                    type="password"
+                    required=""
+                    id="password"
+                    value={values.password}
+                    onChange={handleChange}
+                    name="password"
+                    onBlur={handleBlur}
+                  />
+                  {errors.password && (
+                    <div className="error">{errors.password}</div>
+                  )}
+                </div>
+                <button className="loginButton" href="/" title="Home">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  Submit
+                </button>
+              </form>
             </div>
-            <form />
-            <form />
-            <div className="password-box">
-              <input
-                type="password"
-                required=""
-                label="Password"
-                value={body.password}
-                onChange={inputChange}
-                name="password"
-              />
-              <label>Password</label>
-            </div>
-            <a href="/" title="Home" onClick={onSubmit}>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              Submit
-            </a>
-          </form>
-        </div>
-      </div>
+          </div>
+        )}
+      </Formik>
     </>
   );
 };
