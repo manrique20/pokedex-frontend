@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./CardInfo.css";
+import closeImage from "../../img/closeImage.png"
+import openImage from "../../img/openImage.png"
 
 const CardInfo = ({ pokemon, close, details }) => {
   const [showPopup, setShowPopup] = useState(true);
@@ -52,15 +54,17 @@ const CardInfo = ({ pokemon, close, details }) => {
                   X
                 </button>
                 <div>
-                  <button onClick={handleClick}>
+                  <button className='pokeball-click' onClick={handleClick}>
                     {clicked ? (
                       <img
-                        src="/ruta/a/imagen-clicked.png"
+                      className="clicked"
+                        src={closeImage}
                         alt="Imagen Clicked"
                       />
                     ) : (
                       <img
-                        src="/ruta/a/imagen-default.png"
+                      className="default"
+                        src={openImage}
                         alt="Imagen Default"
                       />
                     )}
