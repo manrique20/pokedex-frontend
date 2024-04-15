@@ -43,12 +43,12 @@
     background: transparent;
   }
   .Signup-box .new-user-box label {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
+    color: aqua;
     pointer-events: none;
     transition: 0.5s;
   }
@@ -61,6 +61,38 @@
     font-size: 12px;
   }
   
+  .Signup-box .email-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  .Signup-box .email-box label {
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: aqua;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  
+  .Signup-box .email-box input:focus ~ label,
+  .Signup-box .email-box input:valid ~ label {
+    position: absolute;
+    top: 152px;
+    left: 41px;
+    color: #03e9f4;
+    font-size: 12px;
+    padding: 10px 0;
+  }
+
   .Signup-box .password-box input {
     width: 100%;
     padding: 10px 0;
@@ -72,52 +104,21 @@
     outline: none;
     background: transparent;
   }
-  .Signup-box .password-box label {
-    position: absolute;
+.password-box label {
+
+    position: relative;
     top: 0;
     left: 0;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
+    color: aqua;
     pointer-events: none;
     transition: 0.5s;
+    width: 100%;
   }
   
   .Signup-box .password-box input:focus ~ label,
   .Signup-box .password-box input:valid ~ label {
-    position: absolute;
-    top: 152px;
-    left: 41px;
-    color: #03e9f4;
-    font-size: 12px;
-    padding: 10px 0;
-  }
-
-  .Signup-box .confirm-password-box input {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline: none;
-    background: transparent;
-  }
-.confirm-password-box label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
-    pointer-events: none;
-    transition: 0.5s;
-    width: 100%;
-  }
-  
-  .Signup-box .confirm-password-box input:focus ~ label,
-  .Signup-box .confirm-password-box input:valid ~ label {
     position: absolute;
     top: 232px;
     left: 41px;

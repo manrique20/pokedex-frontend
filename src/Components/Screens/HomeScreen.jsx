@@ -4,6 +4,7 @@ import "./HomeScreen.css";
 import { useEffect, useState } from "react";
 import CardInfo from "../Molecule/CardInfo";
 import Header from "../Molecule/Header/Header";
+import LoadingScreen from "../Atoms/LoadingScreen";
 
 const HomeScreen = () => {
   const [pokemonData, setPokemonData] = useState(null);
@@ -53,16 +54,19 @@ const HomeScreen = () => {
     fetchData();
   }, []);
 
-  if (!pokemonData) return <span>Loading...</span>;
   return (
+    <div>
+      {!pokemonData ? (
+        <LoadingScreen/>        
+      ): (
     <div className="body-Home-Screen">
       <Header
         pokemonData={pokemonData}
         setPokemonData={setPokemonData}
         setReload={setReload}
         reload={reload}
-
-      />
+        
+        />
       <div className="all-container">
         <div className="pokedex-container">
           <div className="pokedex">
@@ -76,12 +80,14 @@ const HomeScreen = () => {
                 close={handleClose}
                 pokemon={pokemonSelected}
                 details={detailed}
-              />
+                />
             </div>
           )}
         </div>
       </div>
     </div>
+      )}
+          </div>
   );
 };
 

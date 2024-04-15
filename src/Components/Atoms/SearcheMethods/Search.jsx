@@ -21,19 +21,27 @@ const Search = ({ pokemonData, setPokemonData, setReload, reload }) => {
 
   return (
     <Form onSubmit={submitHandler} className="d-flex">
-      <Form.Control
-        type="text"
-        name="q"
-        onChange={(e) => setKeyword(e.target.value)}
-        value={keyword}
-        placeholder="Search"
-        className="searchBox"
-      >
-      </Form.Control>
-      <div className="buttonContainer">
-        <Button type="submit" variant="outline-light" className="search-button">
-          Search
-        </Button>
+      <div className="form-container">
+        <Form.Control
+          type="text"
+          name="q"
+          onChange={(e) => setKeyword(e.target.value)}
+          value={keyword}
+          placeholder="Search"
+          className="searchBox"
+        ></Form.Control>
+        <div className="buttonContainer">
+          <Button
+            type="submit"
+            variant="outline-light"
+            className="search-button"
+          >
+            <h4 className="font">
+
+            Search
+            </h4>
+          </Button>
+        </div>
       </div>
     </Form>
   );

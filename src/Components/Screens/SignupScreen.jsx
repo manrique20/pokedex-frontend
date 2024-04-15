@@ -56,7 +56,7 @@ const SignupScreen = () => {
               />
             </div>
             <form />
-            <div className="password-box">
+            <div className="email-box">
               <label>Email</label>
               <input
                 type="text"
@@ -67,7 +67,7 @@ const SignupScreen = () => {
                 onChange={inputChange}
               />
             </div>
-            <div className="confirm-password-box">
+            <div className="password-box">
               <label>Password</label>
               <input
                 type="password"

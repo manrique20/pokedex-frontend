@@ -1,16 +1,29 @@
 import { useState } from "react";
 import "./CardInfo.css";
-import closeImage from "../../img/closeImage.png"
-import openImage from "../../img/openImage.png"
+import closeImage from "../../img/closeImage.png";
+import openImage from "../../img/openImage.png";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const CardInfo = ({ pokemon, close, details }) => {
   const [showPopup, setShowPopup] = useState(true);
-  const token = localStorage.getItem("token");
+  const userId = localStorage.getItem("userId");
   const [clicked, setClicked] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = async (userId, pokemonId) => {
     setClicked(!clicked);
+    try {
+      const response = await axios.post("http://localhost:3001/lists", {
+        trainer_id: parseInt(userId),
+        pokemonId
+      });
+      toast.success("Id list created successfully");
+      console.log(response.data); // Puedes acceder a los datos de respuesta si los necesitas
+    } catch (err) {
+      toast.error(err?.response?.data?.message || "ID list creation error");
+    }
   };
+  
 
   return (
     <>
@@ -54,16 +67,19 @@ const CardInfo = ({ pokemon, close, details }) => {
                   X
                 </button>
                 <div>
-                  <button className='pokeball-click' onClick={handleClick}>
+                  <button
+                    className="pokeball-click"
+                    onClick={() => handleClick(userId, pokemon.id)}
+                  >
                     {clicked ? (
                       <img
-                      className="clicked"
+                        className="clicked"
                         src={closeImage}
                         alt="Imagen Clicked"
                       />
                     ) : (
                       <img
-                      className="default"
+                        className="default"
                         src={openImage}
                         alt="Imagen Default"
                       />

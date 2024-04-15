@@ -1,3 +1,16 @@
+@media (max-width: 767px){
+
+}
+
+@media (max-width: 768px)and (max-width: 990px){
+  
+}
+
+@media (max-width: 991px){
+  
+}
+
+
 .searchBox {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.637);
@@ -8,6 +21,15 @@
   height: 50px;
   border-radius: 40px;
   z-index: 1;
+  max-width: 100%;
+}
+
+
+.form-container{
+  position: relative;
+}
+.font{
+
 }
 .d-flex {
   position: absolute;
@@ -33,6 +55,7 @@
   right: 0;
   top: -1px;
   z-index: 2;
+  max-width: 26%;
 }
 
 .search-button:hover {
