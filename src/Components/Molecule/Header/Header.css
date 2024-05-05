@@ -193,9 +193,10 @@ button.MyTeam:hover {
   .log-in,
   .sign-up,
   button.MyTeam {
-    height: 1%;
+    height: 50px;
     font-size: 15px;
     text-align: center;
-    padding: 1%;
+    padding: 16px;
+    text-decoration: none;
   }
 }
