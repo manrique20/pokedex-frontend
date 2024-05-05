@@ -156,6 +156,11 @@ button.MyTeam:hover {
     font-size: 7px;
     text-align: center;
     padding: 2% 2%;
+    top: -10px;
+    position: relative;
+  }
+  .header {
+    min-height: 120px;
   }
 }
 
@@ -173,7 +178,7 @@ button.MyTeam:hover {
     height: 5%;
     font-size: 15px;
     text-align: center;
-    padding: 2% 2%;
+    padding: 1.5% 1.5%;
   }
 }
 
@@ -191,6 +196,6 @@ button.MyTeam:hover {
     height: 1%;
     font-size: 15px;
     text-align: center;
-    padding: 4% 2%;
+    padding: 1%;
   }
 }

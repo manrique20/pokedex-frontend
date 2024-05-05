@@ -127,21 +127,19 @@
     padding: 10px 0;
   }
   
-  .Signup-box form a {
+  .Signup-box form button {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
     color: #03e9f4;
-    font-size: 16px;
-    text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
     transition: 0.5s;
-    margin-top: 40px;
     letter-spacing: 4px;
+    border-color: transparent;
   }
   
-  .Signup-box a:hover {
+  .Signup-box button:hover {
     background: #03e9f4;
     color: #fff;
     border-radius: 5px;
@@ -149,7 +147,7 @@
       0 0 100px #03e9f4;
   }
   
-  .Signup-box a span {
+  .Signup-box button span {
     position: absolute;
     display: block;
   }
@@ -162,7 +160,7 @@
     }
   }
   
-  .Signup-box a span:nth-child(1) {
+  .Signup-box button span:nth-child(1) {
     top: 0;
     left: -100%;
     width: 100%;
@@ -170,7 +168,7 @@
     background: linear-gradient(90deg, transparent, #03e9f4);
     animation: btn-anim1 1s linear infinite;
   }
-  .Signup-box a span:nth-child(2) {
+  .Signup-box button span:nth-child(2) {
     top: -100%;
     right: 0;
     width: 2px;
@@ -187,7 +185,7 @@
       top: 100%;
     }
   }
-  .Signup-box a span:nth-child(3) {
+  .Signup-box button span:nth-child(3) {
     bottom: 0;
     right: -100%;
     width: 100%;
@@ -204,7 +202,7 @@
       right: 100%;
     }
   }
-  .Signup-box a span:nth-child(4) {
+  .Signup-box button span:nth-child(4) {
     bottom: -100%;
     left: 0;
     width: 2px;

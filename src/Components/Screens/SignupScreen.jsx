@@ -1,98 +1,122 @@
 import { useNavigate } from "react-router";
 import Header from "../Molecule/Header/Header";
 import "./SignupScreen.css";
-import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Formik } from "formik";
 
 const SignupScreen = () => {
-  const [body, setBody] = useState({ nombre: "", email: "", password: "" });
+
   const navigate = useNavigate();
 
-  const inputChange = ({ target }) => {
-    const { name, value } = target;
-    setBody({
-      ...body,
-      [name]: value,
-    });
-  };
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    
-    try {
-      const response = await axios.post(
-        "http://localhost:3001/users/signup",
-        body
-      );
-      const { token } = response.data;
-
-      localStorage.setItem("token", token);
-
-      toast.success("User created succesfully");
-
-      navigate("/");
-    } catch (err) {
-      toast.error(err?.response?.data?.message || "Sign up error")
-    }
-  };
-
   return (
-    <>
-      <Header />
-      <div className="body-signup">
-        <div className="Signup-box">
-          <h2>Registration</h2>
-          <form>
-            <div className="new-user-box">
-              <label>Name</label>
-              <input
-                type="text"
-                label="Nombre"
-                name="nombre"
-                required=""
-                value={body.nombre}
-                onChange={inputChange}
-              />
+
+      <>
+        <Header />
+        <Formik
+          initialValues={{
+            nombre: "",
+            email: "",
+            password: "",
+          }}
+          validate={(values) => {
+            const errors = {};
+            if (!values.nombre) {
+              errors.nombre = "Please write your name";
+            }
+             else if (!values.email) {
+              errors.email = "Please write your email";
+            }
+             else if (!values.password) {
+              errors.password = "Please write your password";
+            }
+            return errors;
+          }}
+          onSubmit={async (values) => {
+            try {
+              const response = await axios.post(
+                "http://localhost:3001/users/signup",
+                values
+              );
+              const { token } = response.data;
+  
+              localStorage.setItem("token", token);
+  
+              toast.success("User created successfully");
+  
+              navigate("/");
+            } catch (err) {
+              toast.error(err?.response?.data?.message || "Sign up error");
+            }
+          }}
+        >
+          {({ handleBlur, values, errors, handleChange, handleSubmit }) => (
+            <div className="body-signup">
+              <div className="Signup-box">
+                <h2>Registration</h2>
+                <form onSubmit={handleSubmit}>
+                  <div className="new-user-box">
+                    <label htmlFor="nombre">Name</label>
+                    <input
+                      type="text"
+                      id="nombre"
+                      name="nombre"
+                      required
+                      value={values.nombre}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.nombre && (
+                      <div className="error">{errors.nombre}</div>
+                    )}
+                  </div>
+                  <div className="email-box">
+                    <label htmlFor="email">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      value={values.email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.email && (
+                      <div className="error">{errors.email}</div>
+                    )}
+                  </div>
+                  <div className="password-box">
+                    <label htmlFor="password">Password</label>
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      required
+                      value={values.password}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.password && (
+                      <div className="error">{errors.password}</div>
+                    )}
+                  </div>
+                <button type="submit" className="submit" title="Home">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  Submit
+                </button>
+                <img
+                  className="charmander-gif"
+                  src="https://64.media.tumblr.com/09b95354d05af9c6c1f949299407736a/tumblr_obyyu1lt1j1qk9nv0o1_640.gif"
+                  alt="charmander"
+                />
+              </form>
             </div>
-            <form />
-            <div className="email-box">
-              <label>Email</label>
-              <input
-                type="text"
-                label="Email"
-                name="email"
-                required=""
-                value={body.email}
-                onChange={inputChange}
-              />
-            </div>
-            <div className="password-box">
-              <label>Password</label>
-              <input
-                type="password"
-                required=""
-                label="Password"
-                value={body.password}
-                onChange={inputChange}
-                name="password"
-              />
-            </div>
-            <a href="/" title="Home" onClick={onSubmit}>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              Submit
-            </a>
-            <img
-              className="charmander-gif"
-              src="https://64.media.tumblr.com/09b95354d05af9c6c1f949299407736a/tumblr_obyyu1lt1j1qk9nv0o1_640.gif"
-              alt="charmander"
-            />
-          </form>
-        </div>
-      </div>
+          </div>
+        )}
+      </Formik>
     </>
   );
 };

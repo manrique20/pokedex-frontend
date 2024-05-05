@@ -1,21 +1,7 @@
-@media (max-width: 767px){
-
-}
-
-@media (max-width: 768px)and (max-width: 990px){
-  
-}
-
-@media (max-width: 991px){
-  
-}
-
-
 .searchBox {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.637);
   justify-content: center;
-  width: 100%;
   position: absolute;
   display: flex;
   height: 50px;
@@ -23,13 +9,8 @@
   z-index: 1;
   max-width: 100%;
 }
-
-
-.form-container{
+.form-container {
   position: relative;
-}
-.font{
-
 }
 .d-flex {
   position: absolute;
@@ -76,3 +57,19 @@
   align-items: center;
 }
 
+@media (max-width: 767px) {
+  .searchBox{
+    width: 100%
+  }
+  .d-flex{
+    width: 80%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 990px) {
+
+}
+
+@media (min-width: 991px) {
+
+}
